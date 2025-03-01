@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.Builder;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.Create;
+using TsmartTechnicalInterviewAssignment.Api.Features.Products.Delete;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.GetAll;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
@@ -14,7 +15,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
                 .WithTags("Product")
                 .WithApiVersionSet(apiVersionSet)
                 .CreateProductGroupItemEndPoint()
-                .GetAllProductGroupItemEndPoint();
+                .GetAllProductGroupItemEndPoint()
+                .DeleteProductByIdGroupItemEndPoint();
         }
     }
 }

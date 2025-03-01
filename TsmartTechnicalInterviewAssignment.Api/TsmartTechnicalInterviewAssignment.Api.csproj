@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Products\GetById\" />
     <Folder Include="Features\Products\Update\" />
   </ItemGroup>
 

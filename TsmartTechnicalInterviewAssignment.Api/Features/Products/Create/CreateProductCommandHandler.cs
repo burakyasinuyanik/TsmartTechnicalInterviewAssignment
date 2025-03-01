@@ -17,8 +17,6 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Create
                 return ServiceResult<CreateProductResponse>.Error("İlgili ürün mevcut", $"{request.Name} daha önce kayıtlı bir üründür.", HttpStatusCode.BadRequest);
             var product = mapper.Map<Product>(request);
             product.Id = NewId.NextSequentialGuid();
-            product.DateCraeted = DateTime.Now;
-            product.DateModified = DateTime.Now;
             await productService.Create(product,cancellationToken);
             return ServiceResult<CreateProductResponse>.SuccessAsCreated(new CreateProductResponse(product.Id), $"/products/{product.Id}");
 
