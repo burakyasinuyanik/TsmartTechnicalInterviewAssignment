@@ -3,7 +3,7 @@ using Asp.Versioning.Builder;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
 {
-    public static class CategoryEndPointExt
+    public static class ProductEndPointExt
     {
         public static void AddProductGroupEndPointExt(this WebApplication app, ApiVersionSet apiVersionSet)
         {
