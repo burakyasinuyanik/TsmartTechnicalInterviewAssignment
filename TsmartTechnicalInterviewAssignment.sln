@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsmartTechnicalInterviewAssignment.Api", "TsmartTechnicalInterviewAssignment.Api\TsmartTechnicalInterviewAssignment.Api.csproj", "{BC5D3009-1BD9-432A-92E0-140399A2A26A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsmartTechnicalInterviewAssignment.Shared", "TsmartTechnicalInterviewAssignment.Shared\TsmartTechnicalInterviewAssignment.Shared.csproj", "{7D0E08EC-C89E-4007-BA06-6D7F660FB585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsmartTechnicalInterviewAssignment.Repositories", "TsmartTechnicalInterviewAssignment.Repositories\TsmartTechnicalInterviewAssignment.Repositories.csproj", "{4FAD36B3-35A6-40EE-B922-D488D272DB49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsmartTechnicalInterviewAssignment.Services", "TsmartTechnicalInterviewAssignment.Services\TsmartTechnicalInterviewAssignment.Services.csproj", "{FCC02477-538E-4808-B011-8D4EBB70DF62}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TsmartTechnicalInterviewAssignment.Entities", "TsmartTechnicalInterviewAssignment.Entities\TsmartTechnicalInterviewAssignment.Entities.csproj", "{964C169B-E041-4250-BFB1-0A2C98ADF0B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BC5D3009-1BD9-432A-92E0-140399A2A26A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC5D3009-1BD9-432A-92E0-140399A2A26A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC5D3009-1BD9-432A-92E0-140399A2A26A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC5D3009-1BD9-432A-92E0-140399A2A26A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D0E08EC-C89E-4007-BA06-6D7F660FB585}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D0E08EC-C89E-4007-BA06-6D7F660FB585}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D0E08EC-C89E-4007-BA06-6D7F660FB585}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D0E08EC-C89E-4007-BA06-6D7F660FB585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4FAD36B3-35A6-40EE-B922-D488D272DB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FAD36B3-35A6-40EE-B922-D488D272DB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FAD36B3-35A6-40EE-B922-D488D272DB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FAD36B3-35A6-40EE-B922-D488D272DB49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCC02477-538E-4808-B011-8D4EBB70DF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCC02477-538E-4808-B011-8D4EBB70DF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCC02477-538E-4808-B011-8D4EBB70DF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCC02477-538E-4808-B011-8D4EBB70DF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{964C169B-E041-4250-BFB1-0A2C98ADF0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{964C169B-E041-4250-BFB1-0A2C98ADF0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{964C169B-E041-4250-BFB1-0A2C98ADF0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{964C169B-E041-4250-BFB1-0A2C98ADF0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
