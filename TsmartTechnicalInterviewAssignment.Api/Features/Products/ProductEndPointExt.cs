@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning;
 using Asp.Versioning.Builder;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.Create;
+using TsmartTechnicalInterviewAssignment.Api.Features.Products.GetAll;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
 {
@@ -12,7 +13,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
             app.MapGroup("api/v{version:apiVersion}/product")
                 .WithTags("Product")
                 .WithApiVersionSet(apiVersionSet)
-                .CreateProductGroupItemEndPoint();
+                .CreateProductGroupItemEndPoint()
+                .GetAllProductGroupItemEndPoint();
         }
     }
 }

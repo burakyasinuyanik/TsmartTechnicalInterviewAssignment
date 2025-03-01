@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.Create;
+using TsmartTechnicalInterviewAssignment.Api.Features.Products.GetAll;
 using TsmartTechnicalInterviewAssignment.Entities.Models;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Mapping
@@ -9,6 +10,7 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Mapping
         public ProductMapping() {
 
             CreateMap<CreateProductCommand, Product>();
+            CreateMap<Product, GetAllProductResponse>();
         }
     }
 }

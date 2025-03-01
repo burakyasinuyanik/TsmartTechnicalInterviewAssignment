@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using TsmartTechnicalInterviewAssignment.Entities.Models;
@@ -11,31 +12,43 @@ namespace TsmartTechnicalInterviewAssignment.Services
 {
     public class ProductManager(IProductRepository _productRepository) : IProductService
     {
-        public async Task CreateProduct(Product product)
+        public async Task Create(Product entity, CancellationToken cancellation)
         {
-           await _productRepository.Create(product);
-            
+            await _productRepository.Create(entity, cancellation);
         }
 
-        public async Task DeleteProduct(int id)
+        public async Task Delete(Product entity, CancellationToken cancellation)
         {
-           var product= await _productRepository.GetByIdAsync(id);
-            _productRepository.Delete(product);
+            entity.IsDeleted = true;
+            await _productRepository.Delete(entity, cancellation);
         }
 
-        public ValueTask<Product> GetProductByIdAsync(int id)
+        public IQueryable<Product> FindByCondition(Expression<Func<Product, bool>> expression)
         {
-            throw new NotImplementedException();
+            return _productRepository.FindByCondition(expression);
         }
 
-        public Task<List<Product>> GetAllProductsAsync()
+        public async Task<Product> FindByConditionOne(Expression<Func<Product, bool>> expression, CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            return await _productRepository.FindByConditionOne(expression, cancellation);
         }
 
-        public Task UpdateProduct(Product product)
+        public async Task<List<Product>> GetAllAsync(CancellationToken cancellation)
         {
-            throw new NotImplementedException();
+            var productList = await _productRepository.GetAllAsync(cancellation);
+
+            return productList.Where(x=>x.IsDeleted==false).ToList();
+        }
+
+        public async ValueTask<Product> GetByIdAsync(Guid id)
+        {
+            return await _productRepository.GetByIdAsync(id);
+        }
+
+        public async Task Update(Product entity, CancellationToken cancellationToken)
+        {
+            entity.DateModified = DateTime.Now;
+            await _productRepository.Update(entity, cancellationToken);
         }
     }
 }

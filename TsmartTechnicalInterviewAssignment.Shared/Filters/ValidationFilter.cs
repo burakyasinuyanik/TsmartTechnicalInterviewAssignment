@@ -14,7 +14,7 @@ namespace TsmartTechnicalInterviewAssignment.Shared.Filters
         public async ValueTask<object?> InvokeAsync(EndpointFilterInvocationContext context, EndpointFilterDelegate next)
         {
             var validator = context.HttpContext.RequestServices.GetService<IValidator<T>>();
-            //fast fail
+           
             if (validator is null)
                 return await next(context);
 

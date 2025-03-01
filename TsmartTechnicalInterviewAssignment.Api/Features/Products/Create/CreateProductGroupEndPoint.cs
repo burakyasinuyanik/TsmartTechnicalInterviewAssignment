@@ -1,5 +1,8 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 using TsmartTechnicalInterviewAssignment.Shared.Extensions;
+using TsmartTechnicalInterviewAssignment.Shared.Filters;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Create
 {
@@ -13,8 +16,15 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Create
 
                 var result = await mediator.Send(command);
 
-               return result.ToGenericResult();
-            }).MapToApiVersion(1,0);
+                return result.ToGenericResult();
+            })
+            .AddEndpointFilter<ValidationFilter<CreateProductCommand>>()
+            .MapToApiVersion(1, 0)
+            .Produces<Guid>(StatusCodes.Status201Created)
+            .Produces(StatusCodes.Status404NotFound)
+            .Produces<ProblemDetails>(StatusCodes.Status400BadRequest)
+            .Produces<ProblemDetails>(StatusCodes.Status500InternalServerError);
+
 
             return group;
         }
