@@ -19,6 +19,7 @@ namespace TsmartTechnicalInterviewAssignment.Api.Extensions
         public static void RegisterServices(this IServiceCollection services)
         {
             services.AddScoped<IProductService, ProductManager>();
+            services.AddScoped<IUserService, UserManager>();
         }
 
         public static void ConfigureIdentity(this IServiceCollection services)

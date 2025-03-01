@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using TsmartTechnicalInterviewAssignment.Api;
 using TsmartTechnicalInterviewAssignment.Api.Extensions;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products;
+using TsmartTechnicalInterviewAssignment.Api.Features.Users;
 using TsmartTechnicalInterviewAssignment.Repositories;
 using TsmartTechnicalInterviewAssignment.Shared.Extensions;
 
@@ -20,7 +21,7 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.AddProductGroupEndPointExt(app.AddVersionSetExt());
-
+app.AddUserGroupEndPointExt(app.AddVersionSetExt());
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
