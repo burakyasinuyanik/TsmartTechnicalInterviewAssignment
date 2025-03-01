@@ -12,7 +12,7 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Delete
                 var result = await mediator.Send(new DeleteProductCommand(id));
                return result.ToGenericResult();
             })
-                .MapToApiVersion(1, 0); ;
+                .MapToApiVersion(1, 0); 
 
 
             return group;

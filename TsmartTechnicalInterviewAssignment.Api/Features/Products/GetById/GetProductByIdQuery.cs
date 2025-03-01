@@ -2,5 +2,5 @@
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.GetById
 {
-    public record class GetProductByIdQuery(Guid id) : IRequestByServiceResult<ServiceResult<GetProductByIdResponse>>;
+    public record class GetProductByIdQuery(Guid id) : IRequestByServiceResult<GetProductByIdResponse>;
 }
