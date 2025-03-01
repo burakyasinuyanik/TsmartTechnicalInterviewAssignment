@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Products\Create\" />
     <Folder Include="Features\Products\Delete\" />
     <Folder Include="Features\Products\GetAll\" />
     <Folder Include="Features\Products\GetById\" />

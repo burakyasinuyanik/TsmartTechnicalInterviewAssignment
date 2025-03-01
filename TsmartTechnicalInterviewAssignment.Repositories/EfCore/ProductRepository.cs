@@ -14,22 +14,7 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.EfCore
         {
         }
 
-        public void CreateProduct(Product product)=>Create(product);
-
-        public async Task DeleteProduct(int id)
-        {
-
-            var product=await GetByIdAsync(id);
-            Delete(product);
-            
-        }
        
-        public ValueTask<Product> GetProductByIdAsync(int id)=> GetByIdAsync(id);
-       
-
-        public Task<List<Product>> GetProductsByIdAsync()=>GetAllAsync();
-
-        public void UpdateProduct(Product product)=>Update(product);
 
         
 

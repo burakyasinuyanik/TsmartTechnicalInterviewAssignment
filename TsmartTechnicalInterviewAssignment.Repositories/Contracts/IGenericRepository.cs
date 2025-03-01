@@ -13,6 +13,7 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Contracts
         void Delete(T entity);
         Task<List<T>> GetAllAsync();
         ValueTask<T> GetByIdAsync(int id);
+        Task SaveAsync();
 
 
     }

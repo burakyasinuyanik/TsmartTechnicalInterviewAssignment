@@ -7,7 +7,7 @@ using TsmartTechnicalInterviewAssignment.Shared.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("de")));
+builder.Services.AddDbContext<AppIdentityDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("sqlConnection")));
 builder.Services.AddCommonServiceExt(typeof(ProductAssembly));
 builder.Services.RegisterRepositories();
 builder.Services.RegisterServices();

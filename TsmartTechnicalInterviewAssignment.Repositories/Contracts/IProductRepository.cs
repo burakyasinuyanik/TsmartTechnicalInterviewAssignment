@@ -9,11 +9,7 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Contracts
 {
     public interface IProductRepository:IGenericRepository<Product>
     {
-        public void CreateProduct(Product product);
-        public void UpdateProduct(Product product);
-        public Task DeleteProduct(int id);
-        public ValueTask<Product> GetProductByIdAsync(int id);
-        public Task<List<Product>> GetProductsByIdAsync();
+      
 
     }
 }

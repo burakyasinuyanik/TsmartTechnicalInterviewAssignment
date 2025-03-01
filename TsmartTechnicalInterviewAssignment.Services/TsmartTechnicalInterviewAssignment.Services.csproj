@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Entities\TsmartTechnicalInterviewAssignment.Entities.csproj" />
+    <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Repositories\TsmartTechnicalInterviewAssignment.Repositories.csproj" />
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Shared\TsmartTechnicalInterviewAssignment.Shared.csproj" />
   </ItemGroup>
 

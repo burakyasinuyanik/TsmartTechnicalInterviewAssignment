@@ -19,13 +19,20 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.EfCore
             _dbSet = _context.Set<T>();
         }
 
-        public async Task Create(T entity)=>await _dbSet.AddAsync(entity);
-
+        public async Task Create(T entity){
+            await _dbSet.AddAsync(entity);
+           await SaveAsync();
+        }
         public Task<List<T>> GetAllAsync() => _dbSet.ToListAsync();
 
         public  void Update(T entity) => _dbSet.Update(entity);
         public ValueTask<T> GetByIdAsync(int id)=>_dbSet.FindAsync(id)!;
 
         public void Delete(T entity)=>_dbSet.Remove(entity);
+
+        public async Task SaveAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }
