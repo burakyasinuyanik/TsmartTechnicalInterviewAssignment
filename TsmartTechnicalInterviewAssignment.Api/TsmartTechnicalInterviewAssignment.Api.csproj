@@ -25,8 +25,4 @@
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Shared\TsmartTechnicalInterviewAssignment.Shared.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Features\Products\Update\" />
-  </ItemGroup>
-
 </Project>

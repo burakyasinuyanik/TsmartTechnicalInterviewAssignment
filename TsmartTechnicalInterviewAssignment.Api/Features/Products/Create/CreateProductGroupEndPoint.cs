@@ -1,6 +1,6 @@
 ﻿using FluentValidation;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
+using Refit;
 using TsmartTechnicalInterviewAssignment.Shared.Extensions;
 using TsmartTechnicalInterviewAssignment.Shared.Filters;
 

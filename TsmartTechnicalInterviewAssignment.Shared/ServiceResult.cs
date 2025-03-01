@@ -26,7 +26,7 @@ namespace TsmartTechnicalInterviewAssignment.Shared
         [JsonIgnore]
         public bool IsFail => !IsSuccess;
 
-        //static factory methods
+       
         public static ServiceResult SuccessAsNoContent()
         {
             return new ServiceResult
@@ -41,8 +41,8 @@ namespace TsmartTechnicalInterviewAssignment.Shared
                 Status = HttpStatusCode.NotFound,
                 Fail = new ProblemDetails
                 {
-                    Title = "Not Found",
-                    Detail = "The requested resource was not found"
+                    Title = "Bulunamadı",
+                    Detail = "İstenen kaynak bulunamadı"
                 }
 
 
@@ -109,8 +109,8 @@ namespace TsmartTechnicalInterviewAssignment.Shared
                 Status = HttpStatusCode.BadRequest,
                 Fail = new ProblemDetails()
                 {
-                    Title = "Validation errors accrued",
-                    Detail = "Please Check",
+                    Title = "Doğrulama hataları oluştu",
+                    Detail = "Lütfen kontrol edin",
                     Extensions = errors,
                     Status = HttpStatusCode.BadRequest.GetHashCode()
                 }
@@ -152,7 +152,7 @@ namespace TsmartTechnicalInterviewAssignment.Shared
             };
         }
 
-        //201 =>Created=> respones body header=> location == api/product/5
+       
         public static ServiceResult<T> SuccessAsCreated(T data, string url)
         {
             return new ServiceResult<T>
@@ -224,8 +224,8 @@ namespace TsmartTechnicalInterviewAssignment.Shared
                 Status = HttpStatusCode.BadRequest,
                 Fail = new ProblemDetails()
                 {
-                    Title = "Validation errors accrued",
-                    Detail = "Please Check",
+                    Title = "Doğrulama hataları oluştu",
+                    Detail = "Lütfen kontrol edin",
                     Extensions = errors,
                     Status = HttpStatusCode.BadRequest.GetHashCode()
                 }

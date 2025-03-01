@@ -25,6 +25,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.Create
             .Matches(@"^\d{7}$").WithMessage("Ürün no harf içermemelidir ve 7 karakterli olmalıdır.");
 
             RuleFor(x => x.Stock).NotEmpty().WithMessage("Stok boş olamaz");
+
+            RuleFor(x => x.Stock).Must(x => x == 0 || x > 0).WithMessage("Geçerli bir stok giriniz.");
         }
     }
 }

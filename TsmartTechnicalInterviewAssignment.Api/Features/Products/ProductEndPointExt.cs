@@ -4,6 +4,7 @@ using TsmartTechnicalInterviewAssignment.Api.Features.Products.Create;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.Delete;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.GetAll;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.GetById;
+using TsmartTechnicalInterviewAssignment.Api.Features.Products.Update;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
 {
@@ -18,7 +19,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
                 .CreateProductGroupItemEndPoint()
                 .GetAllProductGroupItemEndPoint()
                 .DeleteProductByIdGroupItemEndPoint()
-                .GetProductByIdGroupItemEndPoint();
+                .GetProductByIdGroupItemEndPoint()
+                .UpdateProductGroupItemEndPoint();
         }
     }
 }
