@@ -1,6 +1,7 @@
 ﻿using Asp.Versioning.Builder;
 using TsmartTechnicalInterviewAssignment.Api.Features.Products.Create;
 using TsmartTechnicalInterviewAssignment.Api.Features.Users.Create;
+using TsmartTechnicalInterviewAssignment.Api.Features.Users.Login;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Users
 {
@@ -12,7 +13,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Users
             app.MapGroup("api/v{version:apiVersion}/user")
                 .WithTags("User")
                 .WithApiVersionSet(apiVersionSet).
-                CreateUserCommandGroupItemEndPoint();
+                CreateUserCommandGroupItemEndPoint().
+                LoginUserQueryGroupItemEndPoint();
                 
         }
     }

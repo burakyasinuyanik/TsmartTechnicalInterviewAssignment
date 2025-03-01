@@ -48,7 +48,20 @@ namespace TsmartTechnicalInterviewAssignment.Shared
 
             };
         }
+        public static ServiceResult Unauthorized()
+        {
+            return new ServiceResult
+            {
+                Status = HttpStatusCode.Unauthorized,
+                Fail = new ProblemDetails
+                {
+                    Title = "Giriş Yapılamadı",
+                    Detail = "Lütfen bilgilerinizi kontrol ediniz"
+                }
 
+
+            };
+        }
         public static ServiceResult ErrorFromProblemDetails(ApiException exception)
         {
             if (string.IsNullOrEmpty(exception.Content))
@@ -160,6 +173,20 @@ namespace TsmartTechnicalInterviewAssignment.Shared
                 Status = HttpStatusCode.Created,
                 Data = data,
                 UrlAsCreated = url
+
+            };
+        }
+        public new static ServiceResult<T> Unauthorized()
+        {
+            return new ServiceResult<T>
+            {
+                Status = HttpStatusCode.Unauthorized,
+                Fail = new ProblemDetails
+                {
+                    Title = "Giriş Yapılamadı",
+                    Detail = "Lütfen bilgilerinizi kontrol ediniz"
+                }
+
 
             };
         }

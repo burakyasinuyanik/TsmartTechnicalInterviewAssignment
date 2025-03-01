@@ -26,7 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Users\Login\" />
     <Folder Include="Features\Users\Delete\" />
     <Folder Include="Features\Users\RefreshToken\" />
   </ItemGroup>

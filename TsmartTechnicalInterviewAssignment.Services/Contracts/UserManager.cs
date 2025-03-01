@@ -32,16 +32,19 @@ namespace TsmartTechnicalInterviewAssignment.Services.Contracts
         public async Task<IdentityResult> RegisterUser(AppUserRegisterDto appUserRegisterDto)
         {
             var user = mapper.Map<AppUser>(appUserRegisterDto);
-            var result=await userManager.CreateAsync(user);
+            var result=await userManager.CreateAsync(user,appUserRegisterDto.Password);
             if (result.Succeeded)
                 await userManager.AddToRolesAsync(user,appUserRegisterDto.Roles);
           
             return result;
         }
 
-        public Task<bool> ValidateUser(AppUser userForAuthenticationDto)
+        public async Task<bool> ValidateUser(string email,string password)
         {
-            throw new NotImplementedException();
+            _appUser = await userManager.FindByEmailAsync(email);
+            var result = (_appUser is not null && await userManager.CheckPasswordAsync(_appUser, password));
+            
+            return result;
         }
     }
 }

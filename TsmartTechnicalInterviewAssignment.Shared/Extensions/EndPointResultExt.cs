@@ -17,7 +17,7 @@ namespace TsmartTechnicalInterviewAssignment.Shared.Extensions
                 HttpStatusCode.OK => Results.Ok(result.Data),
                 HttpStatusCode.Created => Results.Created(result.UrlAsCreated, result.Data),
                 HttpStatusCode.NotFound => Results.NotFound(result.Fail!),
-
+                HttpStatusCode.Unauthorized=> Results.Unauthorized(),
                 _ => Results.Problem(result.Fail!),
 
             };
@@ -29,6 +29,7 @@ namespace TsmartTechnicalInterviewAssignment.Shared.Extensions
 
                 HttpStatusCode.NoContent => Results.NoContent(),
                 HttpStatusCode.NotFound => Results.NotFound(result.Fail!),
+                HttpStatusCode.Unauthorized => Results.Unauthorized(),
                 _ => Results.Problem(result.Fail!),
 
             };

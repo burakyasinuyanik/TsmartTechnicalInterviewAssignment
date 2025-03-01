@@ -12,7 +12,7 @@ namespace TsmartTechnicalInterviewAssignment.Services.Contracts
     public interface IUserService
     {
         Task<IdentityResult> RegisterUser(AppUserRegisterDto appUserRegisterDto);
-        Task<bool> ValidateUser(AppUser userForAuthenticationDto);
+        Task<bool> ValidateUser(string email,string password);
         Task<TokenDto> CreateToken(bool populateExp);
         Task<TokenDto> RefreshToken(TokenDto tokenDto);
         Task<AppUser> FindByEmailAsync(string email);
