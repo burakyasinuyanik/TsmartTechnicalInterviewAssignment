@@ -20,7 +20,7 @@ builder.Services.ConfigureIdentity();
 builder.Services.ConfigureJWT(builder.Configuration);
 builder.Services.ConfigureSwagger();
 builder.Services.AddVersioningExt();
-
+builder.Services.ConfigureCors();
 
 builder.Services.AddOpenApi();
 

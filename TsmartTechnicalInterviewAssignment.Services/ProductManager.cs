@@ -4,9 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using TsmartTechnicalInterviewAssignment.Entities.Dtos;
 using TsmartTechnicalInterviewAssignment.Entities.Models;
 using TsmartTechnicalInterviewAssignment.Repositories.Contracts;
 using TsmartTechnicalInterviewAssignment.Services.Contracts;
+using TsmartTechnicalInterviewAssignment.Services.Extension;
 
 namespace TsmartTechnicalInterviewAssignment.Services
 {
@@ -33,11 +35,16 @@ namespace TsmartTechnicalInterviewAssignment.Services
             return await _productRepository.FindByConditionOne(expression, cancellation);
         }
 
-        public async Task<List<Product>> GetAllAsync(CancellationToken cancellation)
+        public async Task<PagedList<Product>> GetAllAsync(GetAllParameters parameters,CancellationToken cancellation)
         {
-            var productList = await _productRepository.GetAllAsync(cancellation);
+            var productList =  _productRepository.GetAllAsync(cancellation);
+          
+            var lists = productList.Filterproducts(parameters.MinPrice, parameters.MaxPrice)
+                 .Search(parameters.SearchTerm).Where(x=>x.IsDeleted==false).ToList();
 
-            return productList.Where(x=>x.IsDeleted==false).ToList();
+
+
+            return PagedList<Product>.ToPagedList(lists, parameters.PageNumber, parameters.PageSize);
         }
 
         public async ValueTask<Product> GetByIdAsync(Guid id)

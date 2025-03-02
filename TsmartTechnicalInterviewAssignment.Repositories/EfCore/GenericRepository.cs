@@ -26,7 +26,10 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.EfCore
             await _dbSet.AddAsync(entity);
             await SaveAsync(cancellationToken);
         }
-        public Task<List<T>> GetAllAsync(CancellationToken cancellationToken) => _dbSet.ToListAsync(cancellationToken);
+        public IQueryable<T> GetAllAsync(CancellationToken cancellationToken){
+
+            return _dbSet;
+        }
 
         public async Task Update(T entity, CancellationToken cancellationToken)
         {

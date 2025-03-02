@@ -12,7 +12,7 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Contracts
         Task Create(T entity,CancellationToken cancellationToken);
         Task Update(T entity, CancellationToken cancellationToken);
         Task Delete(T entity, CancellationToken cancellationToken);
-        Task<List<T>> GetAllAsync(CancellationToken cancellationToken);
+        IQueryable<T> GetAllAsync(CancellationToken cancellationToken);
         ValueTask<T> GetByIdAsync(Guid id);
         IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression);
         Task<T> FindByConditionOne(Expression<Func<T, bool>> expression, CancellationToken cancellationToken);
