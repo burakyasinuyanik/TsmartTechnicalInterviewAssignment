@@ -78,7 +78,7 @@ Belirli bir ID'ye sahip ürünü günceller. Güncellenmek istenen bilgiler JSON
 DELETE /api/products/{id}
 Belirli bir ID'ye sahip ürünü siler (soft delete işlemi yapar).
 
-POST /api/auth/login
+POST /api/user/login
 Kullanıcı girişi yapar ve JWT token döndürür.
 
 Swagger üzerinden test etmek için başarılı bir şekilde token aldıntan sonra sağ üstte bulunan Authorize kısmına tıklayarak aşağıdaki şekilde başarılı almış olduğunuz tokeni Bearer bir boşuk bırakıp
