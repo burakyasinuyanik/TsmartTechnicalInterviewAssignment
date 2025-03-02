@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Text;
 using TsmartTechnicalInterviewAssignment.Entities.Models;
 using TsmartTechnicalInterviewAssignment.Repositories;
 using TsmartTechnicalInterviewAssignment.Repositories.Contracts;
@@ -37,5 +41,83 @@ namespace TsmartTechnicalInterviewAssignment.Api.Extensions
             .AddDefaultTokenProviders();
 
         }
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration)
+        {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = jwtSettings["secretKey"];
+
+            services.AddAuthentication(opt =>
+            {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(opt =>
+            {
+                opt.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = jwtSettings["validIssuer"],
+                    ValidAudience = jwtSettings["validAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
+            });
+
+            services.AddAuthorization();
+
+        }
+        public static void ConfigureSwagger(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(s =>
+            {
+                s.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "TsmartTechnicalInterviewAssignment",
+                    Version = "v1",
+                    Description = "Burak Yasin Uyanık",
+                    TermsOfService = new Uri("https://www.burakyasin.com"),
+                    Contact = new OpenApiContact
+                    {
+                        Name = "Burak",
+                        Email = "burakyasin3370@gmail.com",
+                        Url = new Uri("https://www.linkedin.com/in/burakyasinuyanik/")
+                    },
+
+                });
+
+
+                s.SwaggerDoc("v2", new OpenApiInfo { Title = "TsmartTechnicalInterviewAssignment", Version = "v2" });
+
+                s.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme()
+                {
+                    In = ParameterLocation.Header,
+                    Description = "Jwt Bearer Login",
+                    Name = "Authorization",
+                    Type = SecuritySchemeType.ApiKey,
+                    Scheme = "Bearer"
+                });
+                s.AddSecurityRequirement(new OpenApiSecurityRequirement()
+                {
+                    {
+                        new OpenApiSecurityScheme
+                        {
+                            Reference=new OpenApiReference
+                            {
+                                Type=ReferenceType.SecurityScheme,
+                                Id="Bearer"
+
+                            },
+                            Name="Bearer"
+                        },
+                        new List<string>()
+                    }
+
+                });
+            });
+
+        }
+
     }
 }

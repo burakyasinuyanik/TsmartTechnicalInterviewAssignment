@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.1">
       <PrivateAssets>all</PrivateAssets>
@@ -23,11 +24,6 @@
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Repositories\TsmartTechnicalInterviewAssignment.Repositories.csproj" />
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Services\TsmartTechnicalInterviewAssignment.Services.csproj" />
     <ProjectReference Include="..\TsmartTechnicalInterviewAssignment.Shared\TsmartTechnicalInterviewAssignment.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Users\Delete\" />
-    <Folder Include="Features\Users\RefreshToken\" />
   </ItemGroup>
 
 </Project>

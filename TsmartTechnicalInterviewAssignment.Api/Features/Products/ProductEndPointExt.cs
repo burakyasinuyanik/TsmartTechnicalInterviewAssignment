@@ -20,7 +20,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products
                 .GetAllProductGroupItemEndPoint()
                 .DeleteProductByIdGroupItemEndPoint()
                 .GetProductByIdGroupItemEndPoint()
-                .UpdateProductGroupItemEndPoint();
+                .UpdateProductGroupItemEndPoint()
+                .RequireAuthorization(x => x.RequireRole(["Admin"]));
         }
     }
 }

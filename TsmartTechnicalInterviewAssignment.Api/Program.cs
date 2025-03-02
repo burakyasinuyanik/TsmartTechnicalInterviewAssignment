@@ -13,6 +13,8 @@ builder.Services.AddCommonServiceExt(typeof(ProductAssembly));
 builder.Services.RegisterRepositories();
 builder.Services.RegisterServices();
 builder.Services.ConfigureIdentity();
+builder.Services.ConfigureJWT(builder.Configuration);
+builder.Services.ConfigureSwagger();
 builder.Services.AddVersioningExt();
 
 
@@ -28,7 +30,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseAuthentication();
 
+app.UseAuthorization();
 app.UseHttpsRedirection();
 
 app.Run();

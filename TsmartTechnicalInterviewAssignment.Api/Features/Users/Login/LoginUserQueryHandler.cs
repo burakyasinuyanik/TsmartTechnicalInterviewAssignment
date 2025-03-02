@@ -12,8 +12,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Users.Login
             if (!await userService.ValidateUser(request.Email, request.Password))
                 return ServiceResult<TokenDto>.Unauthorized();
 
-
-            return ServiceResult<TokenDto>.SuccessAsOk(new TokenDto("a","v"));
+            var tokenDto = await userService.CreateToken(true);
+            return ServiceResult<TokenDto>.SuccessAsOk(tokenDto);
         }
     }
 }
