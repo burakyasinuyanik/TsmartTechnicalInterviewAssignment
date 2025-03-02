@@ -12,7 +12,7 @@ using TsmartTechnicalInterviewAssignment.Services.Contracts;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Extensions
 {
-    public static class ServicesExtensions
+    public static class ServicesExt
     {
         public static void RegisterRepositories(this IServiceCollection services)
         {
@@ -65,7 +65,16 @@ namespace TsmartTechnicalInterviewAssignment.Api.Extensions
                 };
             });
 
-            services.AddAuthorization();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("Admin", policy =>
+                    policy.RequireRole("Admin"));
+                options.AddPolicy("AdminOrMusteri", policy =>
+                    policy.RequireRole("Admin", "Musteri"));
+                options.AddPolicy("Musteri", policy =>
+                    policy.RequireRole("Musteri"));
+                
+            });
 
         }
         public static void ConfigureSwagger(this IServiceCollection services)
@@ -118,6 +127,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Extensions
             });
 
         }
+
+
 
     }
 }

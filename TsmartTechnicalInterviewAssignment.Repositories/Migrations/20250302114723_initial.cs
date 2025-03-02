@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
+#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
+
 namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
 {
     /// <inheritdoc />
@@ -65,7 +67,6 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     DateCraeted = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateModified = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    DateDeleted = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Barcode = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     ProductNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -182,6 +183,27 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetRoles",
+                columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
+                values: new object[,]
+                {
+                    { "570b1702-7b3a-4919-aa54-d24444afbdff", null, "Musteri", "MUSTERI" },
+                    { "f5bcc4f0-5b9b-45fb-b587-d86d912db64d", null, "Yetkisiz", "YETKISIZ" },
+                    { "f749fed8-fbf0-4dd0-b236-3bf35ec55945", null, "Admin", "ADMIN" }
+                });
+
+            
+
+            migrationBuilder.InsertData(
+                table: "Products",
+                columns: new[] { "Id", "Barcode", "DateCraeted", "DateModified", "Description", "IsActive", "Name", "Price", "ProductNo", "Stock" },
+                values: new object[,]
+                {
+                    { new Guid("5577bf0d-8bfb-46df-a48c-45be2be375e1"), "9876543210987", new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Başka bir örnek ürün.2", true, "Örnek Ürün 1", 15.0, "7654321", 10 },
+                    { new Guid("5577bf0d-8bfb-46df-a48c-45be2be375e6"), "9876543210987", new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Başka bir örnek ürün.", true, "Örnek Ürün 2", 150.75, "7654321", 100 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -215,6 +237,8 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            
         }
 
         /// <inheritdoc />

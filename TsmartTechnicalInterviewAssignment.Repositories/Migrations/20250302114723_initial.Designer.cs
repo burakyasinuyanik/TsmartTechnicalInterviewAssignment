@@ -12,8 +12,8 @@ using TsmartTechnicalInterviewAssignment.Repositories;
 namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
 {
     [DbContext(typeof(AppIdentityDbContext))]
-    [Migration("20250301110520_updateProductTable")]
-    partial class updateProductTable
+    [Migration("20250302114723_initial")]
+    partial class initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,6 +50,26 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "f749fed8-fbf0-4dd0-b236-3bf35ec55945",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "570b1702-7b3a-4919-aa54-d24444afbdff",
+                            Name = "Musteri",
+                            NormalizedName = "MUSTERI"
+                        },
+                        new
+                        {
+                            Id = "f5bcc4f0-5b9b-45fb-b587-d86d912db64d",
+                            Name = "Yetkisiz",
+                            NormalizedName = "YETKISIZ"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -230,6 +250,50 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "d64d2ede-b0b6-4fe2-a377-ae76641405fb",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5228b89b-1bae-4e31-93f1-19eae31d36d0",
+                            Email = "admin@admin.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEMoOWqhp+NaDKvCdnmjU8k4QDCoLxqFg3IUFW+JAiXkldnY12g/J/gFWpEVx+WgvSA==",
+                            PhoneNumberConfirmed = false,
+                            RefreshTokenExpiryToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SecurityStamp = "cfd65ea5-7fea-4fc7-9073-91a3b471e3c7",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "8aacf4f3-899f-436a-9d70-67f448a72b29",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "566a4e3b-37e0-40f3-827b-8d02958fa744",
+                            Email = "musteri@musteri.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEBm8Y1yYTn75rWOa0UUQnZgCN8x4oxKl3kEKkiWiBtYJuABiwevGB2gu93Nc8/80Gg==",
+                            PhoneNumberConfirmed = false,
+                            RefreshTokenExpiryToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SecurityStamp = "71839b1c-f82f-4b8c-8e19-0db980895c0b",
+                            TwoFactorEnabled = false
+                        },
+                        new
+                        {
+                            Id = "7a93b592-e7d5-41f9-bd37-367c449f38b5",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "2b30b649-b25c-470b-8b59-c7e5ee952b82",
+                            Email = "yetkisiz@yetkisiz.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            PasswordHash = "AQAAAAIAAYagAAAAEENoPYoYRvB9krBDb5IeSE1YbTJBEz00iaLsh+n3HQD7V5T9d39wPshp19jLKi7EJQ==",
+                            PhoneNumberConfirmed = false,
+                            RefreshTokenExpiryToken = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SecurityStamp = "3119b2f5-1273-430f-97b0-e679d23415cb",
+                            TwoFactorEnabled = false
+                        });
                 });
 
             modelBuilder.Entity("TsmartTechnicalInterviewAssignment.Entities.Models.Product", b =>
@@ -242,11 +306,9 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DateCraeted")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateModified")
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
@@ -282,6 +344,36 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("5577bf0d-8bfb-46df-a48c-45be2be375e6"),
+                            Barcode = "9876543210987",
+                            DateCraeted = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Başka bir örnek ürün.",
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Örnek Ürün 2",
+                            Price = 150.75,
+                            ProductNo = "7654321",
+                            Stock = 100
+                        },
+                        new
+                        {
+                            Id = new Guid("5577bf0d-8bfb-46df-a48c-45be2be375e1"),
+                            Barcode = "9876543210987",
+                            DateCraeted = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateModified = new DateTime(2025, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Description = "Başka bir örnek ürün.2",
+                            IsActive = true,
+                            IsDeleted = false,
+                            Name = "Örnek Ürün 1",
+                            Price = 15.0,
+                            ProductNo = "7654321",
+                            Stock = 10
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

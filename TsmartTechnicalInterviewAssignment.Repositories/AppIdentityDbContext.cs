@@ -29,6 +29,7 @@ namespace TsmartTechnicalInterviewAssignment.Repositories
             modelBuilder.Entity<IdentityUserLogin<string>>()
             .HasKey(l => new { l.UserId, l.LoginProvider, l.ProviderKey });
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            
 
         }
     }

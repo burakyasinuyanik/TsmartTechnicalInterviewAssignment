@@ -25,8 +25,38 @@ namespace TsmartTechnicalInterviewAssignment.Repositories.Configurations
             builder.Property(x => x.Price).IsRequired();    
             builder.Property(x => x.Barcode).IsRequired();  
             builder.Property(x => x.ProductNo).IsRequired();  
-            builder.Property(x => x.Stock).IsRequired();  
-            
+            builder.Property(x => x.Stock).IsRequired();
+
+            builder.HasData(
+                new Product
+                {
+                    Id = Guid.Parse("5577bf0d-8bfb-46df-a48c-45be2be375e6"),
+                    Name = "Örnek Ürün 2",
+                    Description = "Başka bir örnek ürün.",
+                    IsDeleted = false,
+                    IsActive = true,
+                    DateCraeted = DateTime.Parse("01.01.2025"),
+                    DateModified = DateTime.Parse("01.01.2025"),
+                    Price = 150.75,
+                    Barcode = "9876543210987", 
+                    ProductNo = "7654321", 
+                    Stock = 100
+                },
+                new Product
+                {
+                    Id = Guid.Parse("5577bf0d-8bfb-46df-a48c-45be2be375e1"),
+                    Name = "Örnek Ürün 1",
+                    Description = "Başka bir örnek ürün.2",
+                    IsDeleted = false,
+                    IsActive = true,
+                    DateCraeted = DateTime.Parse("01.01.2025"),
+                    DateModified = DateTime.Parse("01.01.2025"),
+                    Price = 15,
+                    Barcode = "9876543210987",
+                    ProductNo = "7654321",
+                    Stock = 10
+                }
+                );
         }
     }
 }

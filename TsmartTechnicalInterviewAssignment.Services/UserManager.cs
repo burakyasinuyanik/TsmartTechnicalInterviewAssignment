@@ -12,8 +12,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TsmartTechnicalInterviewAssignment.Entities.Dtos;
 using TsmartTechnicalInterviewAssignment.Entities.Models;
+using TsmartTechnicalInterviewAssignment.Services.Contracts;
 
-namespace TsmartTechnicalInterviewAssignment.Services.Contracts
+namespace TsmartTechnicalInterviewAssignment.Services
 {
     public class UserManager(UserManager<AppUser> userManager, IMapper mapper, IConfiguration configuration) : IUserService
     {
@@ -32,7 +33,7 @@ namespace TsmartTechnicalInterviewAssignment.Services.Contracts
 
             var accessToken = new JwtSecurityTokenHandler().WriteToken(tokenOptions);
             return new TokenDto(accessToken, refreshToken);
-            
+
         }
 
         private string GenerateRefreshToken()
@@ -142,7 +143,7 @@ namespace TsmartTechnicalInterviewAssignment.Services.Contracts
         public async Task<bool> ValidateUser(string email, string password)
         {
             _appUser = await userManager.FindByEmailAsync(email);
-            var result = (_appUser is not null && await userManager.CheckPasswordAsync(_appUser, password));
+            var result = _appUser is not null && await userManager.CheckPasswordAsync(_appUser, password);
 
             return result;
         }

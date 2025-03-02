@@ -10,11 +10,13 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.GetById
             group.MapGet("/{id:guid}", async (IMediator mediator, Guid id) =>
             {
 
-                var result= await mediator.Send(new GetProductByIdQuery(id));
+                var result = await mediator.Send(new GetProductByIdQuery(id));
 
                 return result.ToGenericResult();
             })
-                .MapToApiVersion(1, 0); ;
+                .MapToApiVersion(1, 0)
+            .RequireAuthorization(["AdminOrMusteri"]);
+
 
             return group;
         }

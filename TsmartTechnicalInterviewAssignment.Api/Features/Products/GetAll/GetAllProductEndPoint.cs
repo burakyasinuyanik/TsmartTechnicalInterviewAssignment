@@ -14,7 +14,9 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Products.GetAll
                 return result.ToGenericResult();
             })
               .MapToApiVersion(1, 0)
-              .Produces(200,typeof(GetAllProductQuery));
+              .Produces(200, typeof(GetAllProductQuery))
+            .RequireAuthorization(["AdminOrMusteri"]);
+
 
             return group;
         }
