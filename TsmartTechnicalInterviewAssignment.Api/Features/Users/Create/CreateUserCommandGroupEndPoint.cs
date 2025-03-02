@@ -1,5 +1,7 @@
-﻿using MediatR;
+﻿using FluentValidation;
+using MediatR;
 using TsmartTechnicalInterviewAssignment.Shared.Extensions;
+using TsmartTechnicalInterviewAssignment.Shared.Filters;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Users.Create
 {
@@ -13,7 +15,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Users.Create
 
                 return result.ToGenericResult();
             })
-                .MapToApiVersion(1,0);
+                .MapToApiVersion(1,0)
+                .AddEndpointFilter<ValidationFilter<CreateUserCommand>>();
             return group;
         }
     }

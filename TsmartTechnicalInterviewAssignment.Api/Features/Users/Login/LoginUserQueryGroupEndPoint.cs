@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using TsmartTechnicalInterviewAssignment.Shared.Extensions;
+using TsmartTechnicalInterviewAssignment.Shared.Filters;
 
 namespace TsmartTechnicalInterviewAssignment.Api.Features.Users.Login
 {
@@ -12,7 +13,8 @@ namespace TsmartTechnicalInterviewAssignment.Api.Features.Users.Login
                 var result = await mediator.Send(request);
                 return result.ToGenericResult();
             })
-                .MapToApiVersion(1, 0);
+                .MapToApiVersion(1, 0)
+                .AddEndpointFilter<ValidationFilter<LoginUserQuery>>();
               
             return group;
         }
