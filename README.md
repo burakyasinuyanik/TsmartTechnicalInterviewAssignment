@@ -18,12 +18,7 @@ Projeyi Klonlayın:
 
 Git kullanarak projeyi klonlayın.
 
-
-
 .NET Core projesindeki bağımlılıkları yüklemek için terminal veya komut satırında aşağıdaki komutu çalıştırın:
-
-bash
-Kopyala
 dotnet restore
 Veritabanı Bağlantı Ayarları:
 
@@ -33,13 +28,15 @@ Projeyi çalıştırmadan önce appsettings.json dosyasındaki SQL Server bağla
 
 Veritabanı Migrasyonu:
 
-Veritabanı şemasını oluşturmak için ConnectionStrings ayarını yaptıktan sonra programı çalıştırmanız yeterlidir. Program kendisi migration işlemi sağlayacaktır
+Veritabanı şemasını oluşturmak için ConnectionStrings ayarını yaptıktan sonra programı çalıştırmanız yeterlidir. 
+Program kendisi update migration database işlemlerini sağlayacaktır.
 
 
 Projeyi başlatmak için terminalde aşağıdaki komutu kullanın:
 
 dotnet run
-Uygulama başarıyla çalıştıktan sonra, API endpoint'lerine erişmek için tarayıcınızda "applicationUrl": "https://localhost:7272/swagger/index.html;http://localhost:5143/swagger/index.html"
+Uygulama başarıyla çalıştıktan sonra, API endpoint'lerine erişmek için tarayıcınızda "applicationUrl": "https://localhost:7272/swagger/index.html
+;http://localhost:5143/swagger/index.html"
 
 API Dokümantasyonu
 API'nizi test etmek ve kullanmak için Swagger arayüzüne aşağıdaki URL üzerinden erişebilirsiniz:
@@ -81,6 +78,6 @@ Belirli bir ID'ye sahip ürünü siler (soft delete işlemi yapar).
 POST /api/user/login
 Kullanıcı girişi yapar ve JWT token döndürür.
 
-Swagger üzerinden test etmek için başarılı bir şekilde token aldıntan sonra sağ üstte bulunan Authorize kısmına tıklayarak aşağıdaki şekilde başarılı almış olduğunuz tokeni Bearer bir boşuk bırakıp
-ilgili Endpointleri test edebilirsiniz.
+Swagger üzerinden test etmek için başarılı bir şekilde token aldıktan sonra sağ üstte bulunan Authorize kısmına tıklayarak aşağıdaki şekilde başarılı almış olduğunuz tokeni 
+Bearer bir boşuk bırakıp login işlemi sağladıktan sonra ilgili Endpointleri test edebilirsiniz.
 ![image](https://github.com/user-attachments/assets/56e9190e-5482-4a5c-ac37-be8f2de33a79)
